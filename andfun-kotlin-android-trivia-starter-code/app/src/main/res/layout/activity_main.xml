@@ -22,10 +22,12 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
                 <fragment
-                    android:id="@+id/titleFragment"
+                    android:id="@+id/myNavHostFragment"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:name="com.example.android.navigation.TitleFragment"
+                    android:name="androidx.navigation.fragment.NavHostFragment"
+                    app:defaultNavHost="true"
+                    app:navGraph="@navigation/navigation"
                     />
         </LinearLayout>
 
