@@ -6,18 +6,21 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import com.example.diceroller.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var diceImage:ImageView
+    lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        diceImage = findViewById(R.id.dice_image)
-        val rollBtn:Button = findViewById(R.id.roll_button)
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+        diceImage = binding.diceImage
+        val rollBtn:Button = binding.rollButton
 
         rollBtn.setOnClickListener { rollDice() }
 
