@@ -62,6 +62,18 @@ class SleepTrackerViewModel(
         initializeTonight()
     }
 
+    val startButtonVisible = Transformations.map(tonight){
+        null == it
+    }
+
+    val stopButtonVisible = Transformations.map(tonight){
+        null != it
+    }
+
+    val clearButtonVisible = Transformations.map(nights){
+        it?.isNotEmpty()
+    }
+
     private fun initializeTonight() {
         uiScope.launch {
             tonight.value = getTonightFromDatabase()
