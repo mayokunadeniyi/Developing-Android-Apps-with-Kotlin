@@ -7,11 +7,15 @@
         <variable
             name="sleep"
             type="com.example.android.trackmysleepquality.database.SleepNight" />
+        <variable
+            name="clickListener"
+            type="com.example.android.trackmysleepquality.sleeptracker.SleepNightListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> clickListener.onClick(sleep)}">
 
         <ImageView
             android:id="@+id/quality_image"
@@ -32,7 +36,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            tools:text="TextView"
             app:layout_constraintEnd_toEndOf="@+id/quality_image"
             app:layout_constraintStart_toStartOf="@+id/quality_image"
             app:layout_constraintTop_toBottomOf="@+id/quality_image"
