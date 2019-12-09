@@ -47,6 +47,11 @@ class OverviewViewModel : ViewModel() {
     val properties: LiveData<List<MarsProperty>>
     get() = _properties
 
+    //Navigate to the detail fragment
+    private val _navigateToSelectedProperty = MutableLiveData<MarsProperty>()
+    val navigateToSelectedProperty: LiveData<MarsProperty>
+    get() = _navigateToSelectedProperty
+
     //Coroutine Job and Coroutine Scope
     val coroutineJob = Job()
     val coroutineScope = CoroutineScope(Dispatchers.Main + coroutineJob)
@@ -64,8 +69,8 @@ class OverviewViewModel : ViewModel() {
     private fun getMarsRealEstateProperties() {
       coroutineScope.launch {
           val getPropertiesDeferred = MarsApi.retrofitService.getProperties()
+          _status.value = MarsApiStatus.LOADING
           try {
-              _status.value = MarsApiStatus.LOADING
               if (getPropertiesDeferred.size > 0){
                   _status.value = MarsApiStatus.DONE
                   _properties.value = getPropertiesDeferred
@@ -75,6 +80,14 @@ class OverviewViewModel : ViewModel() {
               _properties.value = ArrayList()
           }
       }
+    }
+
+    fun displayPropertyDetails(marsProperty: MarsProperty){
+        _navigateToSelectedProperty.value = marsProperty
+    }
+
+    fun displayPropertiesDetailComplete(){
+        _navigateToSelectedProperty.value = null
     }
 
     override fun onCleared() {
