@@ -24,7 +24,7 @@ import com.example.android.devbyteviewer.domain.Video
 @Entity(tableName = "database_video_table")
 data class DatabaseVideo constructor(
 
-        @PrimaryKey(autoGenerate = true)
+        @PrimaryKey
         val url: String,
         val updated: String,
         val title: String,
