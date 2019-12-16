@@ -34,6 +34,6 @@ fun goneIfNotNull(view: View, it: Any?) {
  * Binding adapter used to display images from URL using Glide
  */
 @BindingAdapter("imageUrl")
-fun setImageUrl(imageView: ImageView, url: String) {
-    Glide.with(imageView.context).load(url).into(imageView)
+fun ImageView.setImageUrl(url: String){
+    Glide.with(this.context).load(url).into(this)
 }
