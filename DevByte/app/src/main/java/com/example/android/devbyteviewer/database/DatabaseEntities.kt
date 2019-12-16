@@ -17,3 +17,15 @@
 
 package com.example.android.devbyteviewer.database
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "database_video_table")
+data class DatabaseVideo constructor(
+
+        @PrimaryKey(autoGenerate = true)
+        val url: String,
+        val updated: String,
+        val title: String,
+        val description: String,
+        val thumbnail: String)
