@@ -31,7 +31,7 @@ class DevByteApplication : Application() {
      * Use it to setup any background tasks, running expensive setup operations in a background
      * thread to avoid delaying app start.
      */
-    override fun onCreate() {
+    override fun onCreate() { 
         super.onCreate()
         Timber.plant(Timber.DebugTree())
     }
