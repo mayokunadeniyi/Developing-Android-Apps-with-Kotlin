@@ -28,6 +28,7 @@
                 android:layout_height="0dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintDimensionRatio="4:3"
+                android:contentDescription="@string/stage_image_description"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
