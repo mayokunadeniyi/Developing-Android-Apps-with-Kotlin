@@ -24,6 +24,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0">
 
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/regions_list"
+                app:singleLine="true"
+                app:singleSelection="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/spacing_normal"/>
+
         </HorizontalScrollView>
 
         <androidx.recyclerview.widget.RecyclerView
